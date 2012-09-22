@@ -8,7 +8,6 @@
 //  http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <boost/atomic/config.hpp>
 #ifndef BOOST_ATOMIC_FLAG_LOCK_FREE
 #include <boost/thread/mutex.hpp>
 #endif
@@ -32,7 +31,7 @@ public:
         }
     };
 private:
-    static BOOST_ATOMIC_DECL mutex pool_[41];
+    static mutex pool_[41];
 
     static mutex &
     lock_for(const volatile void * addr)
@@ -70,7 +69,7 @@ public:
     };
 
 private:
-    static BOOST_ATOMIC_DECL atomic_flag pool_[41];
+    static atomic_flag pool_[41];
 
     static lock_type &
     lock_for(const volatile void * addr)
